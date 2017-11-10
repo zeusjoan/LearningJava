@@ -1,0 +1,127 @@
+#To jest heptext do GIT-a
+https://git-scm.com/book/pl/v1/Podstawy-Gita-Pierwsze-repozytorium-Gita
+#To jest komentarz no to dalsza testy
+#To jest fajna stronka :
+http://rogerdudler.github.io/git-guide/index.pl.html
+#Cos ostatnio sie nie zapisalo
+
+#######git konfigurcja#####
+//sprawdzenie ustawien proxy
+	git config --get http.proxy
+//ustawienie proxy
+	 git config --global http.proxy http://10.155.168.131:8080
+
+	 
+#######utwórz nowe repozytorium#######
+//utwórz katalog, wejdź do niego i wykonaj
+	git init
+//aby utworzyć nowe repozytorium git.
+
+#######pobierz repozytorium#######
+//utwórz kopię roboczą lokalnego repozytorium poprzez polecenie
+	git clone /path/to/repository
+//jeśli korzystasz ze zdalnego serwera, użyjesz polecenia
+	git clone username@host:/path/to/repository
+ git clone https://github.com/zeusjoan/LearningJava
+
+#######Sprawdzanie stanu twoich plików#######
+	git status 
+ 
+#################przepływ pracy#################
+//twoje lokalne repozytorium składa się z trzech "drzew" zarządzanych przez git. przerwsze to Katalog Roboczy, który ** przechowuje bieżące pliki. drugie to Index, które działa jak poczekalnia i ostatnie z nich to HEAD, które wskazuje na ostatni utworzony commit.
+
+
+#################add & commit#################
+//Możesz zaproponować zmiany (dodać je do Index) używając
+	git add <filename>
+	git add *
+//To pierwszy krok podczas pracy z gitem. 
+//Aby rzeczywiście zatwierdzić te zmiany użyj
+	git commit -m "Commit message"
+//Teraz plik jest zatwierdzony w HEAD, ale nie w zdalnym repozytorium.
+
+
+#################wysyłanie zmian#################
+//Twoje zmiany są obecnie w HEAD twojej kopii roboczej. Aby wysłać te zmiany do zdalnego repozytorium, wykonaj 
+	git push origin master
+//Zmień master na dowolną gałąź, której zmiany wysyłasz. 
+
+//Jeśli nie sklonowałeś istniejącego repozytorium i chcesz połączyć je ze zdalnym serwerem, musisz go dodać poprzez 
+	git remote add origin <server>
+//Teraz masz możliwość wysyłania zmian na wskazany serwer.
+
+#################branching#################
+//Gałęzie są używane do rozwijania funkcjonalności odizolowanych od siebie. Gałąź master jest domyślną gałęzią kiedy tworzysz repozytorium. 
+//Używaj innych gałęzi do rozwoju projektu, a kiedy skończysz scalaj je z powrotem z gałęzią główną.
+//utwórz nową gałąź o nazwie "feature_x" i przełącz się na nią
+	git checkout -b feature_x
+//przełącz się z powrotem na master
+	git checkout master
+//i usuń gałąź
+	git branch -d feature_x
+//gałąź nie jest dostępna dla innych dopóki nie wyślesz jej do zdalnego repozytorium
+	git push origin <branch>
+
+#################aktualizacja i scalanie#################
+//aby zaktualizować lokalne repozytorium do ostatniego commita, wykonaj 
+	git pull
+//w swoim katalogu roboczym aby pobrać(fetch) i scalić(merge) zdalne zmiany.
+//aby scalić inną gałąź z gałęzią aktywną (np. master), użyj
+	git merge <branch>
+//w obu przypadkach git próbuje scalić zmiany automatycznie. Niestety nie zawsze jest to możliwe i powoduje konflikty. Jesteś odpowiedzialny za ich scalenie. Ręcznie poprzez edycję plików wskazanych przez git. Po zmianie musisz oznaczyć je jako scalone poprzez
+	git add <filename>
+//przed scaleniem zmian, możesz je obejrzeć używając
+	git diff <source_branch> <target_branch>
+
+#################tagowanie#################
+//Zaleca się tworzenie tagów dla wersji oprogramowania. To znany koncept, który istnieje również w SVN. Możesz utworzyć nowy tag o nazwie 1.0.0 wykonując
+	git tag 1.0.0 1b2e1d63ff
+//1b2e1d63ff to pierwsze 10 znaków numeru commita do którego odwołuje się ten tag. Możesz uzyskać ten numer patrząc na...
+
+#################log#################
+//Możesz przeglądać historię repozytorium w najprostszej formie używając.. git log
+//Możesz dodawać dużo parametrów aby uzyskać to czego potrzebujesz. aby zobaczyć commity konkretnego autora:
+	git log --author=bob
+//aby zobaczyć bardziej zwarty rezultat, gdzie commit jest pojedynczą linią:
+	git log --pretty=oneline
+//A może chcesz zobaczyć drzewo w ASCII art wszystkich gałęzi opatrzone ich nazwami oraz nazwami tagów: 
+	git log --graph --oneline --decorate --all
+//zobacz tylko te pliki które zostały zmienione: 
+	git log --name-status
+//To tylko kilka z możliwych parametrów, których możesz użyć. Wiecej zobaczysz w git log --help
+
+#################wycofaj lokalne zmiany#################
+//Jeśli coś pójdzie nie tak (co oczywiście nigdy się nie zdarza ;) możesz wycofać lokalne zmiany poprzez
+	git checkout -- <filename>
+//zastępując zmiany w katalogu roboczym ostatnią zawartością HEAD. Zmiany, które zostały już dodane do index, tak jak nowe pliki zostaną zachowane.
+
+//Jeśli zamiast tego chcesz porzucić wszystkie lokalne zmiany i commity pobierz ostatnią historię z serwera i ustaw na nią swoją gałąź lokalną
+	git fetch origin
+	git reset --hard origin/master
+
+#################wskazówki#################
+//wbudowane GUI dla git
+	gitk
+//wyjście git z kolorami
+	git config color.ui true
+//pokaż log jako pojedyncze linie
+	git config format.pretty oneline
+//użyj interaktywnego dodawania
+	git add -i
+
+#################linki i zasoby#################
+gui
+GitX (L) (OSX, open source)
+Tower (OSX)
+Source Tree (OSX & Windows, free)
+GitHub for Mac (OSX, free)
+GitBox (OSX, App Store)
+przewodniki
+Git Community Book
+Pro Git
+Think like a git
+GitHub Help
+A Visual Git Guide
+pomoc
+Git User Mailing List
+#git on irc.freenode.net
