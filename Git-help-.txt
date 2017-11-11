@@ -5,6 +5,27 @@ https://git-scm.com/book/pl/v1/Podstawy-Gita-Pierwsze-repozytorium-Gita
 http://rogerdudler.github.io/git-guide/index.pl.html
 #Cos ostatnio sie nie zapisalo
 
+
+# ***********************************************************************************
+…or create a new repository on the command line
+
+echo "# LearningJava" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zeusjoan/LearningJava.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/zeusjoan/LearningJava.git
+git push -u origin master
+
+# `*********************************************************************************
+
+
+
+
 #######git konfigurcja#####
 //sprawdzenie ustawien proxy
 	git config --get http.proxy
