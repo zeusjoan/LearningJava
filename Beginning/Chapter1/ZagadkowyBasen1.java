@@ -1,24 +1,24 @@
 class ZagadkowyBasen1 {
 	public static void main(String[] args) {
 		int x = 0;
-		while (        ) {
-			
+		while (x < 4) {
+			System.out.println("a ");
 			if ( x < 1) {
-				
-				
+				System.out.print(" ");
 			}
-			if (      ) {
-				
-				
+			System.out.print("n ");
+			if ( x > 1 ) {
+				System.out.print("tyczny");
+				x = x + 2;
 			}
 			if ( x == 1 ){
-				
+				System.out.print("talek");
 			}
-			if (      ) {
-		
+			if ( x < 1 ) {
+				System.out.print("asz");
 			}
 			System.out.println("");
-
-		}
+			x = x + 1;
+ 		}
 	}
 }
