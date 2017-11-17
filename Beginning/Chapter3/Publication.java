@@ -12,12 +12,47 @@ public class Publication {
 	{
 		title = t;
 		publisher = pb;
-		yesr = y;
+		year = y;
 		ident = i;
 		prince = pr;
-		quantity =q;
+		quantity = q;
 
 	}
+	
+	// tak zwane get-tery
+	public String getTitle() {
+		return title;
+	}
+	public String getPublisher() {
+		return publisher;
+	}
+	public int getYear() {
+		return year;
+	}
+	public String getIdent() {
+		return ident;
+	}
+	public double getPrice() {
+		return prince;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	// tak zwane set-tesry
+	public  void setPrice(double p) {
+		price = p;
+	}
+	// a to juz co innego nie wiem jak na razie nazwac
+	public void buy(int n) {
+		quantity = quantity + n; //tak albo tak jak nizej mozna to zapisac
+		//quantity += n; 
+	}
+	public void sell(int n) {
+		quantity = quantity - n; //tak albo tak jak nizej mozna to zapisac
+		//quantity -= n; 
+	}
+	
+	
 
 
 
